@@ -65,7 +65,7 @@ void loop(){
     caracter = bluetooth.read();
   }
 
-  if ( caracter == 'X' )  standAlone();
+  if ( caracter == 'X' ) standAlone();
   if ( caracter == 'x' ) robotStop();
   if ( caracter == 'F' ) robotForward();
   if ( caracter == 'B' ) robotBackward();
