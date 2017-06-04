@@ -1,6 +1,6 @@
 /*
 *  ============================================================
-*  Projeto integrador Robô autonomo e controlado por bluetooth
+*  Projeto integrador RobÃ´ autonomo e controlado por bluetooth
 *  ============================================================
 *  @Autor -> Heliton Leno de Souza 04/06/2017
 *  ============================================================
@@ -121,32 +121,32 @@ void decision()      {
    delay(500);
 
    distanceRight = testDistance();
-   delay(1500);
+   delay(1000);
 
    servo.write(175);
    delay(500);
 
    distanceLeft = testDistance();
-   delay(1500);
+   delay(1000);
 
    servo.write(80);
    delay(500);
    
    if(distanceRight > distanceLeft){
       robotBackward();
-      delay(600); 
+      delay(500); 
 
       robotRight();
-      delay(2000);
+      delay(500);
 
       robotForward();
    
    }else{
       robotBackward();
-      delay(600);
+      delay(500);
 
       robotLeft();
-      delay(2000);
+      delay(500);
 
       robotForward();
    }
@@ -176,7 +176,6 @@ void robotRight(){
    digitalWrite(MOTOR2, HIGH);
    digitalWrite(MOTOR3, HIGH);
    digitalWrite(MOTOR4, LOW);
-
 } 
 
 void robotLeft(){
@@ -186,7 +185,6 @@ void robotLeft(){
    digitalWrite(MOTOR2, LOW);
    digitalWrite(MOTOR3, LOW);
    digitalWrite(MOTOR4, HIGH);
-
 } 
 
 void robotStop(){
