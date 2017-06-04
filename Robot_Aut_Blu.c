@@ -38,6 +38,7 @@ float distanceRight;
 float distanceLeft;      
 int   pot = 0x00;     
 char  caracter;
+boolean alone = false;
 Servo servo; 
 
 void setup(){
@@ -65,13 +66,19 @@ void loop(){
     caracter = bluetooth.read();
   }
 
-  if ( caracter == 'X' ) standAlone();
-  if ( caracter == 'x' ) robotStop();
-  if ( caracter == 'F' ) robotForward();
-  if ( caracter == 'B' ) robotBackward();
-  if ( caracter == 'L' ) robotLeft();
-  if ( caracter == 'R' ) robotRight();
-  if ( caracter == 'S' ) robotStop();
+  if ( caracter == 'X' ){
+    alone = true;
+    standAlone();
+  }
+  if ( caracter == 'x' ){
+    alone = false;
+    robotStop();
+  }
+  if ( caracter == 'F' && !alone ) robotForward();
+  if ( caracter == 'B' && !alone ) robotBackward();
+  if ( caracter == 'L' && !alone ) robotLeft();
+  if ( caracter == 'R' && !alone ) robotRight();
+  if ( caracter == 'S' && !alone ) robotStop();
 } 
 
 void standAlone(){
@@ -81,7 +88,7 @@ void standAlone(){
   
   distanceCm = testDistance();
   
-  if(distanceCm < 20){
+  if(distanceCm < 30){
       decision();
   }
 
